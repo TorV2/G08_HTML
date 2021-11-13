@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+<body>
+
+<!-- Sidebar menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Book to Go
+
+</h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="Book.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">คลังหนังสือ</a>
+  <a href="BestSellBook.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">อันดับหนังสือขายดีประจำวันล่าสุด</a>
+  <br>
+    <a href="main.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">หน้าลูกค้า</a>
+  </div>
+</nav>
+
+
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Book to Go</span>
+</header>
+
+
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!--หน้าสำหรับเจ้าของร้าน-->
+  <!--Class Books-->
+  <center><div class="w3-container" style="margin-top:80px" id="showcase">
+      <h2 class="w3-jumbo"><b>คลังหนังสือ</b></h2></center>
+
+  </div>
+  <center>
+  <input type="search" placeholder="ค้นหารายชื่อหนังสือ">     <!--Methods -searchBook ค้นหาหนังสือ    ของ Class Books-->
+		<button>Search</button>
+
+        <button onClick = "window.open('addBook.html')"><b>ADD NEW+</b></button>    <!--Methods -addBook เพิ่มหนังสือ    ของ Class Books-->
+
+  <div class="w3-row-padding">
+  <br><br>
+<div>
+    <table border="1" bordercolor="black" width="60%" height="20%">
+
+        <!--Methods getBookDetail ดูรายละเอียดหนังสือ    ของ Class Books-->
+        <tr>
+            <th> ชื่อหนังสือ </th>  <!--เป็นAttributes -BookName ชื่อของหนังสือ    ของ Class Books-->
+            <th> ประเภท </th> <!--เป็นAttributes -Category จำนวนของหนังสือ    ของ Class Books-->
+            <th> ราคา </th>   <!--เป็นAttributes -BookPrice จำนวนของหนังสือ    ของ Class Books-->
+            <th> จำนวน </th>
+        </tr>
+        <tr>
+            <td>รวมโจทย์คณิตเก่งคิดแก้ปัญหา</td><td> การศึกษา  </td><td> 199 </td><td> 30</td>
+            <td> <button onClick = "window.open('addBook.html')"><b>แก้ไข</b></button></td>  <!--Methods editBook แก้ไขข้อมูลหนังสือ    ของ Class Books-->
+            <td> <button onClick = "window.open('check.html')"><b>ลบ</b></button></td>      <!--Methods deleteBook ลบหนังสือออกจากคลังหนังสือ    ของ Class Books-->
+        </tr>
+        <tr>
+            <td>"คณิตศาสตร์" ยิ่งชอบ ยิ่งเก่ง ยิ่งเรียน ยิ่งสนุก</td><td> การศึกษา  </td><td> 165  </td><td> 30 </td>
+            <td> <button onClick = "window.open('addBook.html')"><b>แก้ไข</b></button></td>
+            <td> <button onClick = "window.open('addBook.html')"><b>ลบ</b></button></td>
+        </tr>
+        </table>
+    </div>
+    </center>
+
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
